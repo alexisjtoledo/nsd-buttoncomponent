@@ -1,0 +1,116 @@
+@import ./globalStyles
+
+// General Styles
+
+.btn
+    width: 120px
+    height: 32px
+    border-radius: 16px
+    border: none
+
+.btn-label
+    width: 100%
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+
+.icon
+    height: 18px
+    margin-right: 4px
+
+.text
+    font-size: $md-text
+
+.btn:hover
+    cursor: pointer
+
+.btn.disabled
+    cursor: not-allowed
+
+// Variants
+
+// Primary
+
+.primary
+    background-color: $color-b5
+    
+.primary .icon
+    fill: $white
+
+.primary .text
+    color: $white
+
+.btn:hover.primary
+    background-color: $color-p2
+
+.btn:hover.primary .icon
+    fill: $color-b5
+
+.btn:hover.primary .text
+    color: $color-b5
+
+.btn.primary.disabled
+    background-color: $color-g4
+
+.btn.primary.disabled .icon
+    fill: $color-g2
+
+.btn.primary.disabled .text
+    color: $color-g2
+
+// Secondary
+
+.secondary
+    background-color: $color-p2
+
+.secondary .icon
+    fill: $color-b5
+
+.secondary .text
+    color: $color-b5
+
+.btn:hover.secondary
+    background-color: $color-b5
+
+.btn:hover.secondary .icon
+    fill: $white
+
+.btn:hover.secondary .text
+    color: $white
+
+.btn.secondary.disabled
+    background-color: $color-g3
+
+.btn.secondary.disabled .icon
+    fill: $color-g4
+
+.btn.secondary.disabled .text
+    color: $color-g4
+
+// Sizing
+
+// Small
+.btn.small
+    width: 96px
+    height: 26px
+    border-radius: 13px
+
+.btn.small .icon
+    display: none
+
+.btn.small .text
+    font-size: $sm-text
+
+// Small
+.btn.large
+    width: 146px
+    height: 36px
+    border-radius: 18px
+
+.btn.large .icon
+    height: 22px
+    margin-right: 8px
+
+.btn.large .text
+    font-size: $lg-text

@@ -1,11 +1,15 @@
 "use strict";
 
-var _react = _interopRequireDefault(require("react"));
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "SubmitButton", {
+  enumerable: true,
+  get: function get() {
+    return _SubmitButton.default;
+  }
+});
 
-var _client = _interopRequireDefault(require("react-dom/client"));
+var _SubmitButton = _interopRequireDefault(require("./components/SubmitButton"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-const root = _client.default.createRoot(document.getElementById("root"));
-
-root.render( /*#__PURE__*/_react.default.createElement(_react.default.StrictMode, null, /*#__PURE__*/_react.default.createElement("div", null, "App")));
