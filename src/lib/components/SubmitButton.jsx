@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ReactComponent as CheckIcon } from "./check.svg";
-import "./SubmitButton.css";
+import "./SubmitButton.sass";
 
 const SubmitButton = ({ type, size, disabled, onButtonClick }) => {
     const [variant, setVariant] = useState("primary");
@@ -43,6 +43,7 @@ const SubmitButton = ({ type, size, disabled, onButtonClick }) => {
                 disabled ? "disabled" : ""
             } ${buttonSize} ${variant}`}
             onClick={onButtonClick}
+            disabled={disabled}
         >
             <div className="btn-label">
                 <CheckIcon className="icon" />

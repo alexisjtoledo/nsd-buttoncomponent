@@ -11,7 +11,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _check = require("./check.svg");
 
-require("./SubmitButton.css");
+require("./SubmitButton.sass");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -63,7 +63,8 @@ const SubmitButton = _ref => {
   });
   return /*#__PURE__*/_react.default.createElement("button", {
     className: "btn ".concat(disabled ? "disabled" : "", " ").concat(buttonSize, " ").concat(variant),
-    onClick: onButtonClick
+    onClick: onButtonClick,
+    disabled: disabled
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "btn-label"
   }, /*#__PURE__*/_react.default.createElement(_check.ReactComponent, {
