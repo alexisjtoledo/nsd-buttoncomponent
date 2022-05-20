@@ -3,9 +3,17 @@ import { ReactComponent as CheckIcon } from "./check.svg";
 import "./SubmitButton.sass";
 
 const SubmitButton = ({ type, size, disabled, onButtonClick }) => {
+    /**
+     * State
+     *  buttonSize @type {String} - Default value: "medium"
+     *  variant @type {String} - Default value: "default"
+     *  */
     const [variant, setVariant] = useState("default");
     const [buttonSize, setButtonSize] = useState("medium");
 
+    /**
+     *  Sets the value of the variant on the state
+     */
     const getVariant = () => {
         switch (type) {
             case "default":
@@ -19,6 +27,9 @@ const SubmitButton = ({ type, size, disabled, onButtonClick }) => {
         }
     };
 
+    /**
+     *  Sets the value of the size on the state
+     */
     const getButtonSize = () => {
         switch (size) {
             case "small":
@@ -32,6 +43,9 @@ const SubmitButton = ({ type, size, disabled, onButtonClick }) => {
         }
     };
 
+    /**
+     *  Sets the value of the variant on the state
+     */
     const triggerButton = (e) => {
         if (e.keyCode === 83 && !disabled) {
             onButtonClick();
