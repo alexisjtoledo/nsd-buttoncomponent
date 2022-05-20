@@ -24,21 +24,21 @@ const SubmitButton = _ref => {
     disabled,
     onButtonClick
   } = _ref;
-  const [variant, setVariant] = (0, _react.useState)("primary");
+  const [variant, setVariant] = (0, _react.useState)("default");
   const [buttonSize, setButtonSize] = (0, _react.useState)("medium");
 
   const getVariant = () => {
     switch (type) {
-      case "primary":
-        setVariant("primary");
+      case "default":
+        setVariant("default");
         break;
 
-      case "secondary":
-        setVariant("secondary");
+      case "inverted":
+        setVariant("inverted");
         break;
 
       default:
-        setVariant("primary");
+        setVariant("default");
     }
   };
 
@@ -57,14 +57,23 @@ const SubmitButton = _ref => {
     }
   };
 
+  const triggerButton = e => {
+    if (e.keyCode === 83) {
+      onButtonClick();
+    }
+  };
+
   (0, _react.useEffect)(() => {
     getVariant();
     getButtonSize();
+    window.addEventListener("keyup", triggerButton);
+    return () => window.removeEventListener("keyup", triggerButton);
   });
   return /*#__PURE__*/_react.default.createElement("button", {
     className: "btn ".concat(disabled ? "disabled" : "", " ").concat(buttonSize, " ").concat(variant),
     onClick: onButtonClick,
-    disabled: disabled
+    disabled: disabled,
+    "aria-label": "Submit"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "btn-label"
   }, /*#__PURE__*/_react.default.createElement(_check.ReactComponent, {
