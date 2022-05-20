@@ -58,7 +58,7 @@ const SubmitButton = _ref => {
   };
 
   const triggerButton = e => {
-    if (e.keyCode === 83) {
+    if (e.keyCode === 83 && !disabled) {
       onButtonClick();
     }
   };
