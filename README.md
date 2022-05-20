@@ -1,70 +1,135 @@
-# Getting Started with Create React App
+# Submit Button
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Submit button is a primary kind of button. Use it for either submitting or sending information on a form, or accepting terms on a prompted message.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+To install and save it in your package.json dependencies, run the command below npm:
 
-### `npm start`
+```
+npm install nds-assignment
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+or, if you are using yarn:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+yarn add nds-assignment
+```
 
-### `npm test`
+and then import the component into your project:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+import * as React from 'react';
+import ReactDOM from 'react-dom';
+import { SubmitButton } from 'nds-assignment';
 
-### `npm run build`
+function App() {
+  return <SubmitButton />;
+}
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Type modifiers
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The submit button component comes in two different variants: `Default` and `Inverted`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Default
 
-### `npm run eject`
+Use this button when the background is lighter (`color-bg1`, `color-bg2`, `color-bg3` or light mode).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+As its name states, this type will be provided by default so there is no need to specify the type.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+<SubmitButton />
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+_This will return a medium-sized default button_
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Inverted
 
-## Learn More
+Use this button when the background is darker than the content (dark mode).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To change the variant of the button, use the `type` attribute.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+<SubmitButton type="inverted" />
+```
 
-### Code Splitting
+## Size modifiers
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The submit button component comes in three different sizing options: `small`, `medium` and `large`.
 
-### Analyzing the Bundle Size
+Use them minding carefully both the size of your master component and the size of the viewport you are targeting.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The default size variant is `medium`
 
-### Making a Progressive Web App
+To change the size of the button, use the `size` attribute.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+<SubmitButton size="small" />
+```
 
-### Advanced Configuration
+or
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+<SubmitButton size="large" />
+```
 
-### Deployment
+Use the small button for portrait views in small devices (mobile).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Use the large button for larger desktop screens.
 
-### `npm run build` fails to minify
+## Handling clicks
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Use the `onButtonClick` handler to pass the function the button will trigger when pressed.
+
+```
+const myFunction = () => {
+    console.log("Pressed");
+}
+```
+
+...
+
+```
+<SubmitButton onButtonClick={myFunction} />
+```
+
+## Disabling buttons
+
+To disable the button just add the `disabled` attribute.
+
+```
+<SubmitButton disabled />
+```
+
+## Correct usage
+
+Never use more than one Submit button on the same view.
+
+The submit button is a primary button that should trigger ONLY the desired action.
+
+To add new actions use instead a secondary button or a plain text button.
+
+![do's and dont's](./public/usage.png)
+
+## Placement
+
+Place the button in the users’ reading pattern according to the flow of your form.
+
+### Vertical flow (Z-flow / F-flow)
+
+![Form following a vertical flow](./public/vertical-flow.png)
+
+### Horizontal flow
+
+![Form following a horizontal flow](./public/horizontal-flow.png)
+
+## Accessibility
+
+-   Use always the corresponding variant according to the background color in order to maintain a correct contrast ratio.
+
+-   Use the adequate size according to the viewport you're targeting or the size of your master component to make it reachable.
+
+-   The submit button can be triggered using the keyboard using the <kbd>S</kbd> key when it's not selected. Inform the possibility of using this shortcut on your form and be aware of that when binding other keys to different behaviours.
+
+-   Make sure the submit button is the last element on your tabulation order.

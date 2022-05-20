@@ -3,19 +3,19 @@ import { ReactComponent as CheckIcon } from "./check.svg";
 import "./SubmitButton.sass";
 
 const SubmitButton = ({ type, size, disabled, onButtonClick }) => {
-    const [variant, setVariant] = useState("primary");
+    const [variant, setVariant] = useState("default");
     const [buttonSize, setButtonSize] = useState("medium");
 
     const getVariant = () => {
         switch (type) {
-            case "primary":
-                setVariant("primary");
+            case "default":
+                setVariant("default");
                 break;
-            case "secondary":
-                setVariant("secondary");
+            case "inverted":
+                setVariant("inverted");
                 break;
             default:
-                setVariant("primary");
+                setVariant("default");
         }
     };
 
@@ -32,9 +32,17 @@ const SubmitButton = ({ type, size, disabled, onButtonClick }) => {
         }
     };
 
+    const triggerButton = (e) => {
+        if (e.keyCode === 83) {
+            onButtonClick();
+        }
+    };
+
     useEffect(() => {
         getVariant();
         getButtonSize();
+        window.addEventListener("keyup", triggerButton);
+        return () => window.removeEventListener("keyup", triggerButton);
     });
 
     return (
@@ -44,6 +52,7 @@ const SubmitButton = ({ type, size, disabled, onButtonClick }) => {
             } ${buttonSize} ${variant}`}
             onClick={onButtonClick}
             disabled={disabled}
+            aria-label="Submit"
         >
             <div className="btn-label">
                 <CheckIcon className="icon" />
