@@ -24,8 +24,17 @@ const SubmitButton = _ref => {
     disabled,
     onButtonClick
   } = _ref;
+
+  /**
+   * State
+   *  buttonSize @type {String} - Default value: "medium"
+   *  variant @type {String} - Default value: "default"
+   *  */
   const [variant, setVariant] = (0, _react.useState)("default");
   const [buttonSize, setButtonSize] = (0, _react.useState)("medium");
+  /**
+   *  Sets the value of the variant on the state
+   */
 
   const getVariant = () => {
     switch (type) {
@@ -41,6 +50,10 @@ const SubmitButton = _ref => {
         setVariant("default");
     }
   };
+  /**
+   *  Sets the value of the size on the state
+   */
+
 
   const getButtonSize = () => {
     switch (size) {
@@ -57,17 +70,9 @@ const SubmitButton = _ref => {
     }
   };
 
-  const triggerButton = e => {
-    if (e.keyCode === 83 && !disabled) {
-      onButtonClick();
-    }
-  };
-
   (0, _react.useEffect)(() => {
     getVariant();
     getButtonSize();
-    window.addEventListener("keyup", triggerButton);
-    return () => window.removeEventListener("keyup", triggerButton);
   });
   return /*#__PURE__*/_react.default.createElement("button", {
     className: "btn ".concat(disabled ? "disabled" : "", " ").concat(buttonSize, " ").concat(variant),

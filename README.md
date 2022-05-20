@@ -130,6 +130,4 @@ Place the button in the users’ reading pattern according to the flow of your f
 
 -   Use the adequate size according to the viewport you're targeting or the size of your master component to make it reachable.
 
--   The submit button can be triggered using the keyboard using the <kbd>S</kbd> key when it's not selected. Inform the possibility of using this shortcut on your form and be aware of that when binding other keys to different behaviours.
-
 -   Make sure the submit button is the last element on your tabulation order.

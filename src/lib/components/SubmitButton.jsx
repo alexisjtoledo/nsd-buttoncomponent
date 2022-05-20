@@ -43,20 +43,9 @@ const SubmitButton = ({ type, size, disabled, onButtonClick }) => {
         }
     };
 
-    /**
-     *  Sets the value of the variant on the state
-     */
-    const triggerButton = (e) => {
-        if (e.keyCode === 83 && !disabled) {
-            onButtonClick();
-        }
-    };
-
     useEffect(() => {
         getVariant();
         getButtonSize();
-        window.addEventListener("keyup", triggerButton);
-        return () => window.removeEventListener("keyup", triggerButton);
     });
 
     return (
